@@ -1,0 +1,159 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+}
+
+/* Animación del gradiente */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Contenedor de tarjetas mejor distribuido */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.card {
+    width: 100%;
+    max-width: 300px;
+    height: 500px;
+    perspective: 1200px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.card .front,
+.card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 90px;
+    
+}
+
+.card .front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card .back {
+    background: linear-gradient(135deg, #ff9a8b, #ffb6a1);
+    transform: rotateY(180deg);
+    opacity: 0;
+    flex-direction: column;
+}
+
+/* Animaciones de la tarjeta */
+.card.open .front {
+    transform: rotateY(180deg) scale(0.98);
+}
+
+.card.open .back {
+    transform: rotateY(0deg) scale(1);
+    opacity: 1;
+    animation: fadeInScale 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInScale {
+    from { transform: rotateY(180deg) scale(0.9); opacity: 0; }
+    to { transform: rotateY(0deg) scale(1); opacity: 1; }
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.6);
+    transform: scale(1.1) rotate(5deg); /* Giro y escalado */
+    background: linear-gradient(135deg, #ff6f61, #f99b79); /* Cambio de fondo */
+}
+
+/* Botones estilizados */
+button {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff6f61, #f99b79);
+    color: white;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 10px 20px rgba(255, 111, 97, 0.4);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(48, 44, 38, 0.8); /* Un resplandor o sombra para indicar foco */
+}
+
+body {
+    background-image: url('https://i.pinimg.com/236x/a5/59/6b/a5596bfa26d265e2b1ac79905b6106e0.jpg');
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* La imagen se fija mientras se hace scroll */
+    background-color: #f0f0f0; /* Color de fondo por si la imagen no se carga */
+}
+
+
+/* Estilo para el título */
+.page-title {
+    text-align: center; /* Centra el título */
+    margin-bottom: 40px; /* Espacio debajo del título */
+    font-size: 1.5rem; /* Tamaño del texto */
+    color: #fff; /* Color blanco para el texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    font-weight: bold; /* Texto en negrita */
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+}
